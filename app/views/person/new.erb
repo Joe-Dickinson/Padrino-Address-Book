@@ -1,0 +1,8 @@
+<h2>New Person</h2>
+
+  <% form_for @person, '/person/create' do |f| %>
+
+  <%= partial 'person/form' %>
+
+  <%= input_tag :submit, :value => "Add Person" %>
+<% end %>

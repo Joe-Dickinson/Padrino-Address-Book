@@ -1,0 +1,17 @@
+<h3>Index Page</h3>
+
+ <a href='/person/index'>Show All Entries</a>
+
+<div class="search_characters"> 
+  <% ('A'..'Z').each do |l| %>
+  <%= partial 'person/letter', :locals => { :l => l } %>
+  <% end %>
+</div>
+
+<div class="list_name"> 
+  <% @people.each do |p| %>
+  <a href="/person/edit/<%=p._id%>">Edit </a>
+  <%=  "#{p.first_name} #{p.last_name} " %> <br>
+  <% end %>
+</div>
+

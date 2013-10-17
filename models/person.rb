@@ -8,4 +8,12 @@ class Person
   key :github, String
   key :twitter, String
   timestamps!
+
+
+  def self.find_by_letter(letter)
+    search = "^[#{letter.downcase}#{letter.upcase}]"
+    Person.where(:last_name => Regexp.new(/#{search}/)).all
+    # person.where(:last_name => letter, )
+    # Person.where(:last_name.gte => letter, :last_name.lt => letter.next )
+  end
 end

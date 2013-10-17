@@ -19,28 +19,43 @@ PadrinoAddressBook::App.controllers :person do
   #   'Hello world!'
   # end
   
-  get :index do
+  # All routes on this controller use the main layout
+  layout :main
 
+  get '/index' do
+    @people = Person.all
+    render 'person/index'
   end
 
-  get :new do
-
+  get '/new' do
+    #NOT erb :index!
+    @person = Person.new
+    render 'person/new', :layout => 'main'
   end
 
-  post :create do
-
+  post '/create' do
+    #binding.pry
+    p = Person.new(params["person"])
+    p.save
+    flash[:notice] = "Entry Created!"
+    redirect '/person/new'
   end
 
-  get :edit do
-
+  get '/edit', :with => :id do
+    @person = Person.find(params[:id])
+    render 'person/edit'
   end
 
-  post :update do
-
+  post '/update' do
+    p = Person.find(params[:person][:id])
+    p.update_attributes(params[:person])
+    flash[:notice] = "Saved!"
+    redirect '/person/#{p._id}'
   end
 
-  get :search do
-
+  get '/search', :with => :letter do
+    @people = Person.find_by_letter(params[:letter])
+    render 'person/index'
   end
 
 end

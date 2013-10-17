@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>New Person</title>
+
+  <!-- <link href="/stylesheets/main.css" type="text/css" rel="stylesheet"/> -->
+  <%= stylesheet_link_tag :main %>
+
+</head>
+<body>
+  <h1>My Amazing Address Book</h1>
+
+   <nav>
+    <ul>
+      <li><%= link_to 'Add a Person', '/person/new' %></li>
+    </ul>
+  </nav>
+
+  <%= yield %>
+
+</body>
+</html>

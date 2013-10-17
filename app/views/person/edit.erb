@@ -1,0 +1,10 @@
+<h2>Edit Person</h2>
+
+  <% form_for @person, '/person/update' do |f| %>
+  <% f.hidden_field :_id %>
+
+  <%= partial 'person/form', :locals => { :f => f } %>
+
+  <%= input_tag :submit, :value => "Edit Person" %>
+
+  <% end %>
