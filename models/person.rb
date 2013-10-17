@@ -7,6 +7,7 @@ class Person
   key :email, String
   key :github, String
   key :twitter, String
+  key :logged_in, Boolean
   timestamps!
 
 

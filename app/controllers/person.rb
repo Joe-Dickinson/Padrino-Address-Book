@@ -20,7 +20,35 @@ PadrinoAddressBook::App.controllers :person do
   # end
   
   # All routes on this controller use the main layout
+  # enable :authentication
+  # set :login_page, '/person/login'
+
+  # enable :authentication
+  # enable :store_location
+  # set    :login_page, "/person/login"
+
   layout :main
+
+  before do
+    redirect '/person/login' unless session[:logged_in] || env["PATH_INFO"] == '/person/login'
+  end
+
+  get '/login' do
+    render 'person/login', :layout => false
+  end
+
+  post 'login' do
+    person = Person.find_by_email(params[:email])
+       # binding.pry
+    if person && person.password == params[:password]
+      session[:logged_in] = true
+      redirect '/person/index'
+    else
+      flash_tag(:notice, :id => 'Record not found.')
+      flash[:notice] = "Email and password do not match."
+      render 'person/login', :layout => false
+    end
+  end
 
   get '/index' do
     @people = Person.all
@@ -30,7 +58,8 @@ PadrinoAddressBook::App.controllers :person do
   get '/new' do
     #NOT erb :index!
     @person = Person.new
-    render 'person/new', :layout => 'main'
+    render '/person/new' 
+    #, :layout => 'main'
   end
 
   post '/create' do
