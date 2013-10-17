@@ -1,0 +1,9 @@
+---
+:orm: mongomapper
+:test: shoulda
+:mock: none
+:script: none
+:renderer: erb
+:stylesheet: none
+:namespace: PadrinoAddressBook
+:migration_format: number
