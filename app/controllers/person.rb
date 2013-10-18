@@ -30,7 +30,9 @@ PadrinoAddressBook::App.controllers :person do
   layout :main
 
   before do
-    redirect '/person/login' unless session[:logged_in] || env["PATH_INFO"] == '/person/login'
+    binding.pry
+    redirect '/person/login' unless session[:logged_in] || request.fullpath == '/person/login'
+    # env["PATH_INFO"] == '/person/login'
   end
 
   get '/login' do
