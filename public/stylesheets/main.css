@@ -1,23 +1,139 @@
-h1 {
+
+/*My amazing address book*/
+/*h1 {
   background-color: red;
-}
+}*/
 
 body { 
+  width: 900px;
+}
+
+/*Index Page*/
+h3 {
+ 
 
 }
 
-h3 {
-  background-color: red;
+/*New Person / Edit Person*/
+title {
 
 }
 
 .search_characters {
-background-color: red;
-
 
 }
 
+/*List of entries */
 .list_name {
-background-color: grey;
+background-color: #4F4F4C;
 
 }
+
+.box {
+  border-radius: 10px;
+  background-color: green;
+  border-bottom: solid black 10px;
+}
+
+.heading_box {
+  background-color: #39008F;
+  width: 600px;
+ /* height: 550px;*/
+  border-radius: 5px;
+  border-bottom: 5px solid black;
+  border-right: 5px solid black;
+}
+
+
+#underline {
+  background-color: white;
+  width: 900px;
+  height: 2px;
+  z-index: 1;
+}
+
+.underline_short {
+  background-color: white;
+  width: 123px;
+  height: 2px;
+  z-index: 1;
+  margin-bottom: 20px;
+  margin-top: -20px;
+}
+
+#underline_short2 {
+  background-color: white;
+  width: 86px;
+  height: 2px;
+  z-index: 1;
+  margin-top: 2px;
+}
+
+/*.search {
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  font-family: Impact, Charcoal, sans-serif;
+}*/
+
+.search {
+  font-family:'Bookman Old Style', Bookman, 'URW Bookman L', 'Palatino Linotype', serif;
+  color: white;
+}
+
+
+.text_entry_box {
+  position: absolute;
+  left: 105px;
+}
+
+.float_left {
+  float: left;
+}
+
+.button {
+  padding-left: 15px;
+}
+
+.link {
+  color: white;
+/*a:link {text-decoration:none;}
+a:visited {text-decoration:none;}*/
+}
+
+.front_page {
+  background-color: #39008F;
+  width: 400px;
+  height: 550px;
+  border-radius: 5px;
+  border-bottom: 5px solid black;
+  border-right: 5px solid black;
+  padding-top: 1px;
+}
+
+.login {
+  padding-left: 100px;
+}
+
+.login_text {
+  margin-top: 40px;
+  margin-left: 80px;
+  width: 219px;
+}
+
+.text_entry_box_login {
+  position: absolute;
+  left: 175px;
+}
+
+.grey_box {
+  background-color: grey;
+  width: 298px;
+  height: 93px;
+}
+
+.submit_button {
+  margin-left: 155px;
+}
+
+

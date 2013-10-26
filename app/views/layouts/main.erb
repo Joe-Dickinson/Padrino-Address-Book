@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>New Person</title>
+  <title>Address Book</title>
 
   <!-- <link href="/stylesheets/main.css" type="text/css" rel="stylesheet"/> -->
   <%= stylesheet_link_tag :main %>
 
 </head>
 <body>
+  <div class="heading_box search" >
   <h1>My Amazing Address Book</h1>
+  <div id="underline"> </div>
+
+  <%= flash[:notice] %>
 
    <nav>
     <ul>
-      <li><%= link_to 'Add a Person', '/person/new' %></li>
+      <li class="link"><%= link_to 'Add a Person', url_for(:person, :new) %></li>
+      <!-- person/new -->
     </ul>
   </nav>
 
   <%= yield %>
+  </div>
 
 </body>
 </html>

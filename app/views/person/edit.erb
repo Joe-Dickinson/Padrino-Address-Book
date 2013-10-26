@@ -1,12 +1,17 @@
 <h2>Edit Person</h2>
 
-  <% form_for @person, '/person/update' do |f| %>
-  <% f.hidden_field :_id %>
+<div class="underline_short">
+</div>
+
+  <% form_for @person, url_for(:person, :update) do |f| %>
+  <%= f.hidden_field :id %>
+  <!-- :update and :_id-->
 
   <%= partial 'person/form', :locals => { :f => f } %>
 
-  <%= input_tag :submit, :value => "Edit Person" %>
+  <div class="button">
+  <%= input_tag :submit, :value => "Update" %>
+  </div>
 
   <% end %>
 
-  

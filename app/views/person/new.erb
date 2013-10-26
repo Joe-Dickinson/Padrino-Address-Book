@@ -1,8 +1,15 @@
 <h2>New Person</h2>
+<div class="underline_short">
+</div>
 
-  <% form_for @person, '/person/create' do |f| %>
+
+  <% form_for @person, url_for(:person, :create) do |f| %>
+  <!-- create -->
 
   <%= partial 'person/form', :locals => { :f => f } %>
 
+  <div class="button">
   <%= input_tag :submit, :value => "Add Person" %>
+  </div> 
+
 <% end %>

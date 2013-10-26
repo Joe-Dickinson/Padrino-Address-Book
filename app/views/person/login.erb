@@ -1,28 +1,48 @@
 <!DOCTYPE>
 <html>
 <head>
+  <%= stylesheet_link_tag :main %>
   <title>Log in</title>
 </head>
 <body>
-  <h1> Please log in</h1>
- 
+  <div class="front_page">
+  <div class="search">
+    <div class="login">
+      <%= flash[:notice] %>
+      <h1> Please log in</h1>
+    </div>
+    <div id="underline"> </div>
+
+    <div class="grey_box">
+    <div class="login_text"> 
+
+    <form method="POST" action="/person/login" />
+
+  <fieldset>
+    <label class="float_left">Email</label>
+    <div class="text_entry_box_login">
+      <input type="text" name="email"/>
+    </div>
+  </fieldset>
     <form method="POST" action="/person/login" />
   <fieldset>
-    <label>Email</label>
-    <input type="text" name="email"/>
-  </fieldset>
-
-   <form method="POST" action="/person/login" />
-  <fieldset>
-    <label>Password</label>
+    <label class="float_left">Password</label>
+    <div class="text_entry_box_login">
     <input type="password" name="password"/>
+    </div>
   </fieldset>
 
-  <button method="POST" action="/person/login"/> Submit </button>
+
+  <button class="submit_button" method="POST" action="/person/login"/> Submit </button>
+
+    </div> <!-- end of login_text? -->
+  </div> <!-- end of grey box? -->
 
    <h2>
   <a href='/person/new'> ...Or sign up </a>
   </h2>
+  </div> <!-- end of text formatting -->
+  </div> <!-- end of box -->
 
 </body>
 </html>

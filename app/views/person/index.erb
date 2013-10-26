@@ -1,12 +1,16 @@
 <h3>Index Page</h3>
+<div class="underline_short"> </div>
 
- <a href='/person/index'>Show All Entries</a>
+<%=  link_to 'Show All Entries', url_for(:person, :index) %>
+<!-- %p= -->
+<!--  <a href='/person/index'>Show All Entries</a> -->
 
 <div class="search_characters"> 
   <% ('A'..'Z').each do |l| %>
   <%= partial 'person/letter', :locals => { :l => l } %>
   <% end %>
 </div>
+
 
 <div class="list_name"> 
   <% @people.each do |p| %>
