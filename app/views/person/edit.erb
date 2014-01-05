@@ -5,7 +5,6 @@
 
   <% form_for @person, url_for(:person, :update) do |f| %>
   <%= f.hidden_field :id %>
-  <!-- :update and :_id-->
 
   <%= partial 'person/form', :locals => { :f => f } %>
 

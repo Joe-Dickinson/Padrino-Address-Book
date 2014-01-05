@@ -4,9 +4,8 @@ PadrinoAddressBook::App.controllers :person do
   layout :main
 
   before do
-    #binding.pry
     redirect '/person/login' unless session[:logged_in] || request.fullpath == '/person/login'
-    # env["PATH_INFO"] == '/person/login'
+    env["PATH_INFO"] == '/person/login'
   end
 
   get :login do
@@ -15,7 +14,6 @@ PadrinoAddressBook::App.controllers :person do
 
   post :login do
     person = Person.find_by_email(params[:email])
-      # binding.pry
     if person && person.password == params[:password]
       session[:logged_in] = true
       redirect '/person'
@@ -51,9 +49,6 @@ PadrinoAddressBook::App.controllers :person do
     binding.pry
     flash_tag(:notice, :id => 'Updated!')
     flash[:notice] = "Saved!"
-    # redirect 'person/index'
-    # /edit/#{p._id}
-    # render 'person/index'
   end
 
   get :search, :with => :letter, :map => '/person/find' do
@@ -65,32 +60,4 @@ PadrinoAddressBook::App.controllers :person do
     @person = Person.new
     render 'person/new'
   end
-
-  # destroy :edit, :with => :id, :map => '/person' do
-  #   @person = Person.find(params[:id])
-    # @person.destroy
-  # end
-
-
-
-    # get :index, :map => '/foo/bar' do
-  #   session[:foo] = 'bar'
-  #   render 'index'
-  # end
-
-  # get :sample, :map => '/sample/url', :provides => [:any, :js] do
-  #   case content_type
-  #     when :js then ...
-  #     else ...
-  # end
-
-  # get :foo, :with => :id do
-  #   'Maps to url '/foo/#{params[:id]}''
-  # end
-
-  # get '/example' do
-  #   'Hello world!'
-  # end
-  
-
 end
