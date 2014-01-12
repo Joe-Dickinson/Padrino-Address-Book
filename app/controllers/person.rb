@@ -43,10 +43,8 @@ PadrinoAddressBook::App.controllers :person do
   end
 
   put :update, :map => '/person' do
-    binding.pry
     p = Person.find(params[:person][:_id])
     p.update_attributes(params[:person])
-    binding.pry
     flash_tag(:notice, :id => 'Updated!')
     flash[:notice] = "Saved!"
   end
